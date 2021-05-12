@@ -25,8 +25,13 @@ begin
 	begin
 	    if (SET = '1') then
 			Count <= Data;
+			
         elsif (CLK_500Hz'event AND CLK_500Hz = '1' and E = '1') then 
-         	Count <= Count - 1;
+            if (Count= "0000") then
+                Count <= "0000";
+            else
+         	    Count <= Count - 1;
+         	end if;
 	    end if;
 	end process;
 
